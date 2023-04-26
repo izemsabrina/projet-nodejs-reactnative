@@ -5,7 +5,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Accueil from './composants/Accueil';
 import Login from './composants/Login';
-import { ProfilContextProvider } from './contexts/Context';
+import { ProfilContextProvider } from './contexts/profilContext';
+import Oeuvre from './composants/Oeuvre';
+
 
 
 const Tab=createBottomTabNavigator()
@@ -16,6 +18,7 @@ export default function App() {
     <View style={styles.container}>
       <ProfilContextProvider>
       <NavigationContainer>
+        
       <Tab.Navigator>
         <Tab.Screen name="accueil" component={Accueil}
         options={{

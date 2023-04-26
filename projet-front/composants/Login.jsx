@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 import React , {useState,useContext} from 'react'
-import { ProfilContext } from '../contexts/Context'
+import { ProfilContext } from '../contexts/profilContext'
 
 const Login = ({navigation}) => {
     const {setJWT}= useContext(ProfilContext)
@@ -10,7 +10,7 @@ const Login = ({navigation}) => {
     const submit = function(){
         const identifiant = { email, password}
         console.log(identifiant)
-        fetch("http://10.0.2.2:4003/login" , { method : "post" , body : JSON.stringify(identifiant), headers : {"content-type" : "application/json"}})
+        fetch("http://10.0.2.2:4006/login" , { method : "post" , body : JSON.stringify(identifiant), headers : {"content-type" : "application/json"}})
         .then(reponse=> reponse.json())
         .then(data=>{setJWT(data.token)})
     }

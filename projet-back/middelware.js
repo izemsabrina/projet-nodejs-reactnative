@@ -1,4 +1,4 @@
-
+const {schemaOeuvreJoi}=require("./verif/verif")
 const { isValidObjectId } = require("mongoose")
 
 const JWT = require("jsonwebtoken")
@@ -11,7 +11,7 @@ function idValid(request , reponse, next){
 }
 function isValidOeuvre(request , reponse, next){
     const { body } = request; 
-    const {error} = schemaArticleJoi.validate(body , { abortEarly : false})
+    const {error} = schemaOeuvreJoi.validate(body , { abortEarly : false})
     if(error) return  reponse.status(400).json(error.details)
     next();
 }

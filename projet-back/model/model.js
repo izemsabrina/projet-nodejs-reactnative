@@ -5,7 +5,7 @@ const  oeuvreSchema = new Schema({
      nom : {type: String,required :true}  ,
      description : {type: String,required :true} ,
       image : {type: String, default:"https://source.unsplash.com/random/400x200"},
-      auteur : { type: String , ref : "users" ,required:false  },
+      auteur : { type: String , ref : "users" ,required:false },
      dt_creation : {type: Date,required :true} 
    
 });
