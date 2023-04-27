@@ -6,7 +6,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Accueil from './composants/Accueil';
 import Login from './composants/Login';
 import { ProfilContextProvider } from './contexts/profilContext';
-import Oeuvre from './composants/Oeuvre';
 
 
 

@@ -19,7 +19,7 @@ useEffect(function(){
 },[])
   const verificationSQL = function(db){
     db.transaction(function(tx){
-      tx.executeSql(`CREATE TABLE IF NOT EXISTS jwt(
+      tx.executeSql(`CREATE TABLE IF NOT EXISTS jwt (
                     id INTEGER PRIMARY KEY AUTOINCREMENT, 
                     token VARCHAR (255)
                   )`,
@@ -57,17 +57,6 @@ useEffect(function(){
     const [jwt,setJWT] = useState("");
 
     const [user,setUser] = useState({email :" ", password : " "});
-
-        // useEffect(function(){
-        // console.log("test useEffect jwt");
-        // db.transaction(function(tx){
-        //     tx.executeSql(`UPDATE utilisateurs SET token = ?,WHERE email = ? ;`,
-        //                   [jwt,user.email],
-        //                   function(transact, resultat){ console.log("jwt enregistré") },
-        //                   function(transact , err){ console.log("erreur jwt") })
-        //   })
-        // },[jwt])
-
         return <ProfilContext.Provider value = {{jwt,setJWT,user,setUser}}>
             {props.children}
         </ProfilContext.Provider>
