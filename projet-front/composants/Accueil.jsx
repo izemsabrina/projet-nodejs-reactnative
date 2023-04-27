@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View ,Image, ScrollView} from 'react-native'
+import { StyleSheet, Text, View ,Image, ScrollView, Button} from 'react-native'
 import React, { useContext,useEffect,useState } from 'react'
 import { ProfilContext } from '../contexts/profilContext'
 import * as SQLITE from "expo-sqlite"
 
-const Accueil = () => {
+const Accueil = ({navigation}) => {
   
     // const {jwt}= useContext(ProfilContext)
     // useEffect(function(){
@@ -19,20 +19,19 @@ const Accueil = () => {
     const [resultat,setResultat]=useState([])
     useEffect(function (){
    fetch("http://10.0.2.2:4006/all")
-   
    .then(reponse=>reponse.json())
    .then(data => {setResultat(data);console.log(data)})
     },[])
   return (
-    <View>
+    <View >
       <Text>Ensemble des oeuvres disponible dans le musé</Text>
       <ScrollView>
       {resultat.map(function(r,index){
-        return <View key ={index}>
+        return <View key ={index} style={styles.box}>
           <Text>{r.nom}</Text>
-          <Image source ={{uri:r.image}}style={{width:120,height:120}}/>
-          <Text>{r.description}</Text>
-
+          <Image source ={{uri:r.image}} style={{width:120,height:120}}/>
+          {/* <Text>{r.description}</Text> */}
+          <Button title="plus de détail" onPress={()=>{navigation.navigate("single" , {id:r._id} )}}/>
         </View>
       })}
     </ScrollView>
@@ -42,4 +41,12 @@ const Accueil = () => {
 
 export default Accueil
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+box:{
+  alignItems:"flex-start",
+  marginTop:20,
+  marginBottom:10
+}
+
+
+})
