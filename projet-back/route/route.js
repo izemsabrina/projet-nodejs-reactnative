@@ -35,7 +35,7 @@ route.delete("/:id",[autorisation,isAdmin,idValid],async(request,reponse)=>{
 })
 route.get("/:id", idValid , async (request , reponse) => {
     const id = request.params.id ;
-    const OeuvreRecherche = await Article.findById(id)
+    const OeuvreRecherche = await Oeuvre.findById(id)
 
     if(!OeuvreRecherche) return reponse.status(404).json({ msg : `l'article ${id} n'existe pas` })
 
