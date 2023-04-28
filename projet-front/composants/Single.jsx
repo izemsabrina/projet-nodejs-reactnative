@@ -8,7 +8,7 @@ const Single = ({route}) => {
    fetch("http://10.0.2.2:4006/"+route.params.id)
    .then(reponse=>reponse.json()) 
    .then(data=> {setResultat(data);
-    console.log(data)
+    // console.log(data)
     })
     },[])
   return (

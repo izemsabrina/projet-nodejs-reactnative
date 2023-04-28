@@ -12,7 +12,8 @@ const Login = ({navigation}) => {
         console.log(identifiant)
         fetch("http://10.0.2.2:4006/login" , { method : "post" , body : JSON.stringify(identifiant), headers : {"content-type" : "application/json"}})
         .then(reponse=> reponse.json())
-        .then(data=>{setJWT(data.token)})
+        .then(data=>{setJWT(data.token);console.log(data.token)})
+        
     }
   return (
     <View>

@@ -6,6 +6,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Navstack from './composants/Navstack';
 import Login from './composants/Login';
 import { ProfilContextProvider } from './contexts/profilContext';
+import Admin from './composants/Admin';
 
 
 
@@ -28,6 +29,10 @@ export default function App() {
         <Tab.Screen name="connexion" component={Login}
         options={{
           tabBarIcon:()=><MaterialCommunityIcons name='login' size={30}/>
+        }}/>
+        <Tab.Screen name="Admin" component={Admin}
+        options={{
+          tabBarIcon:()=><MaterialCommunityIcons name='view-dashboard' size={30}/>
         }}/>
       </Tab.Navigator>
       </NavigationContainer>
