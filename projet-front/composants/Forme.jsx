@@ -13,8 +13,8 @@ const Single = ({route}) => {
     },[])
   return (
     <View>
+
       <Text>Détail de loeuvre</Text>  
-      <Text>{JSON.stringify(resultat.description)}</Text>
     </View>
   )
 }

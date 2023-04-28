@@ -5,17 +5,6 @@ import * as SQLITE from "expo-sqlite"
 
 const Accueil = ({navigation}) => {
   
-    // const {jwt}= useContext(ProfilContext)
-    // useEffect(function(){
-    // //  const db= SQLITE.openDatabase("demo.sqlite");
-      // db.transaction(function(tx){
-        // tx.executeSql(`SELECT * FROM jwt
-                    // `,
-                      // [],
-                      // function(transact, resultat){ console.log(resultat.rows._array) },
-                      // function(transact , err){ console.log("erreur lors de la création") })
-      // })
-    // },[])
     const [resultat,setResultat]=useState([])
     useEffect(function (){
    fetch("http://10.0.2.2:4006/all")

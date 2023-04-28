@@ -8,7 +8,7 @@ const route=Router()
 route.get("/",idValid,(request,reponse)=>{
     return reponse.json({msg:"les oeuvres"})
 })
-route.post("/",[autorisation,isValidOeuvre],async(request,reponse)=>{
+route.post("/",[/*autorisation,isValidOeuvre*/],async(request,reponse)=>{
     const{body}=request
    
     const dt_creation=new Date()
@@ -22,6 +22,7 @@ route.get("/all",async(request,reponse)=>{
    const tousLesOeuvre=await Oeuvre.find().populate()
     return reponse.json(tousLesOeuvre)
 })
+
 route.put("/:id",[idValid,isValidOeuvre],async(request,reponse)=>{
     const id=request.params.id
     const{body}=request
